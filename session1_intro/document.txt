@@ -1,0 +1,4 @@
+git: 
+- commit: mark a new version
+- push: upload commit to github(server)
+- pull: pull code from a branch to folder
