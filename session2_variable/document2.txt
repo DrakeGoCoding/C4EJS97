@@ -1,0 +1,18 @@
+I. Biến
+    - lưu giá trị trên bộ nhớ tạm thời (RAM)
+
+II. Phân loại biến
+    - biến số:    changeable (var, let)
+    - hằng số:    unchangeable (const)
+
+III. Syntax
+1. Declaration
+    var variable_name;
+    let variable_name;
+
+2. Assignment
+    variable_name = value;
+
+3. Initialization = Declaration + Assignment
+    var/let variable_name = value;
+    const variable_name = value;
