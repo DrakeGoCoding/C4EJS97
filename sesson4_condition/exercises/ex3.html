@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise3</title>
+</head>
+<body>
+    <script>
+        function getSeason(month){
+            let season;
+            switch(month){
+                case 1:    
+                case 2: 
+                case 3: 
+                    season = "Spring";
+                    break;
+                case 4: 
+                case 5: 
+                case 6: 
+                    season = "Summer";
+                    break;
+                case 7: 
+                case 8: 
+                case 9: 
+                    season = "Autumn";
+                    break;
+                case 10: 
+                case 11: 
+                case 12: 
+                    season = "Winter";
+                    break;
+                default: 
+                    break;
+            }
+            return season;
+        }
+        let month = parseInt(prompt("Enter a month: "));
+        console.log(getSeason(month));
+    </script>
+</body>
+</html>
