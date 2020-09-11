@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise5</title>
+</head>
+
+<body>
+    <script>
+        function isTriangle(a, b, c) {
+            if (a + b <= c || a + c <= b || b + c <= a) return false;
+            return true;
+        }
+        function isRightTriangle(a, b, c) {
+            if (a * a + b * b === c * c ||
+                a * a + c * c === b * b ||
+                b * b + c * c === a * a) return true;
+            return false;
+        }
+        function isIsoscelesTriangle(a, b, c) {
+            if (a === b || b === c || a === c) return true;
+            return false;
+        }
+        function isEquilateralTriangle(a, b, c) {
+            if (a === b && b === c) return true;
+            return false;
+        }
+
+        let edge1 = parseInt(prompt("Enter edge 1: "));
+        let edge2 = parseInt(prompt("Enter edge 2: "));
+        let edge3 = parseInt(prompt("Enter edge 3: "));
+
+        if (isTriangle(edge1, edge2, edge3)) {
+            if (isRightTriangle(edge1, edge2, edge3)) {
+                if (isIsoscelesTriangle(edge1, edge2, edge3)) console.log("Right, Isosceles Triangle");
+                else console.log("Right Triangle");
+            }
+            else if (isIsoscelesTriangle(edge1, edge2, edge3)) {
+                if (isEquilateralTriangle(edge1, edge2, edge3)) console.log("Equilateral Triangle");
+                else console.log("Isosceles Triangle");
+            }
+            else console.log("A triangle");
+        }
+        else console.log("Not a triangle");
+    </script>
+</body>
+
+</html>
