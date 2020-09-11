@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise2</title>
+</head>
+<body>
+    <script>
+        function isLeapYear(year){
+            if (year % 4 !== 0) return false;
+            if (year % 100 === 0 && year % 400 !== 0) return false;
+            return true;
+        }
+        function getDays(month, year){
+            let num_of_days;
+            switch(month){
+                case 1:
+                case 3:
+                case 5:
+                case 7:
+                case 8: 
+                case 10: 
+                case 12: 
+                    num_of_days = 31;
+                    break;
+                case 4: 
+                case 6: 
+                case 9: 
+                case 11:
+                    num_of_days = 30;
+                    break;  
+                case 2: 
+                    if (isLeapYear(year)) num_of_days = 29;
+                    else num_of_days = 28;
+                    break;
+                default:
+                    num_of_days = 0;
+                    break;
+            }
+            return num_of_days;
+        }
+        let year = parseInt(prompt("Enter a year: "));
+        let month = parseInt(prompt("Enter a month: "));
+        console.log(getDays(month, year));
+    </script>
+</body>
+</html>
