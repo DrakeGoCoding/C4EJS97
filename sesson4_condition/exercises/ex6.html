@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise6</title>
+</head>
+<body>
+    <script>
+        function calculateElectricityBill(eNum){
+            const from_0_to_50 = 1678;
+            const from_51_to_100 = 1734;
+            const from_101_to_200 = 2014;
+            const from_201_to_300 = 2536;
+            const from_301_to_400 = 2834;
+            const from_401 = 2927;
+            
+            if (eNum >= 0 && eNum <= 50){
+                return eNum * from_0_to_50;
+            }
+            else if (eNum >= 51 && eNum <= 100){
+                return (eNum - 50) * from_51_to_100 + 50 * from_0_to_50;
+            }
+            else if (eNum >= 101 && eNum <= 200){
+                return (eNum - 100) * from_101_to_200 + 50 * from_0_to_50 + 50 * from_51_to_100;
+            }
+            if (eNum >= 201 && eNum <= 300){
+                return (eNum - 200) * from_201_to_300 + 50 * from_0_to_50 + 50 * from_51_to_100 + 100 * from_101_to_200;
+            }
+            if (eNum >= 301 && eNum <= 400){
+                return (eNum - 300) * from_301_to_400 + 50 * from_0_to_50 + 50 * from_51_to_100 + 100 * from_101_to_200 + 100 * from_201_to_300;
+            }
+            if (eNum >= 401){
+                return (eNum - 400) * from_401 + 50 * from_0_to_50 + 50 * from_51_to_100 + 100 * from_101_to_200 + 100 * from_201_to_300 + 100 * from_301_to_400;
+            }
+        }
+        let eNum = parseInt(prompt("Enter electricity number: "));
+        console.log(calculateElectricityBill(eNum));
+    </script>
+</body>
+</html>
