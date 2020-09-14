@@ -16,3 +16,8 @@ III. Syntax
 3. Initialization = Declaration + Assignment
     var/let variable_name = value;
     const variable_name = value;
+
+4. Get data from user
+    var/let variable_name = prompt("User Data");
+
+    *note: return a string
