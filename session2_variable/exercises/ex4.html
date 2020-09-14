@@ -8,10 +8,10 @@
 <body>
     <script>
         let sum = parseInt(prompt("Enter total money in VND (multiple of 10000 VND): "));
-        let num_of_100s = Math.floor(sum / 100000);
-        let num_of_50s = Math.floor((sum - num_of_100s * 100000) / 50000);
-        let num_of_20s = Math.floor((sum - num_of_100s * 100000 - num_of_50s * 50000) / 20000);
-        let num_of_10s = Math.floor((sum - num_of_100s * 100000 - num_of_50s * 50000 - num_of_20s * 20000) / 10000);
+        let num_of_100s = Math.trunc(sum / 100000);
+        let num_of_50s = Math.trunc((sum - num_of_100s * 100000) / 50000);
+        let num_of_20s = Math.trunc((sum - num_of_100s * 100000 - num_of_50s * 50000) / 20000);
+        let num_of_10s = Math.trunc((sum - num_of_100s * 100000 - num_of_50s * 50000 - num_of_20s * 20000) / 10000);
         console.log(`${sum} VND = ${num_of_100s} x 100000 + ${num_of_50s} x 50000 + ${num_of_20s} x 20000 + ${num_of_10s} x 10000`);
     </script>
 </body>

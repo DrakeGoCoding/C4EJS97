@@ -8,8 +8,8 @@
 <body>
     <script>
         let num = parseInt(prompt("Enter a 3-digit number: "));
-        let hundreds = Math.floor(num / 100);
-        let tens = Math.floor((num - hundreds * 100) / 10);
+        let hundreds = Math.trunc(num / 100);
+        let tens = Math.trunc((num - hundreds * 100) / 10);
         let units = num - hundreds * 100 - 10 * tens;
         let sum_of_digits = hundreds + tens + units;
         console.log(sum_of_digits);
