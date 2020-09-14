@@ -13,16 +13,19 @@
             if (a + b <= c || a + c <= b || b + c <= a) return false;
             return true;
         }
+
         function isRightTriangle(a, b, c) {
             if (a * a + b * b === c * c ||
                 a * a + c * c === b * b ||
                 b * b + c * c === a * a) return true;
             return false;
         }
+
         function isIsoscelesTriangle(a, b, c) {
             if (a === b || b === c || a === c) return true;
             return false;
         }
+        
         function isEquilateralTriangle(a, b, c) {
             if (a === b && b === c) return true;
             return false;

@@ -10,6 +10,7 @@
         let weight = parseFloat(prompt("Enter your weight (kg): "));
         let height = parseFloat(prompt("Enter your height (m): "));
         let bmi = weight / Math.pow(height, 2);
+        
         if (bmi <= 15) console.log("Very severely underweight");
         if (bmi > 15 && bmi <= 16) console.log("Severely underweight");
         if (bmi > 16 && bmi <= 18.5) console.log("Underweight");

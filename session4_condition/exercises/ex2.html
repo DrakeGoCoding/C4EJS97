@@ -12,6 +12,7 @@
             if (year % 100 === 0 && year % 400 !== 0) return false;
             return true;
         }
+
         function getDays(month, year){
             let num_of_days;
             switch(month){
@@ -39,8 +40,10 @@
             }
             return num_of_days;
         }
+
         let year = parseInt(prompt("Enter a year: "));
         let month = parseInt(prompt("Enter a month: "));
+        
         console.log(getDays(month, year));
     </script>
 </body>

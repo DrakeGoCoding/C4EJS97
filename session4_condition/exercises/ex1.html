@@ -12,8 +12,10 @@
             if (year % 100 === 0 && year % 400 !== 0) return false;
             return true;
         }
+
         let year = parseInt(prompt("Enter a year: "));
         let check = isLeapYear(year);
+        
         if (check === true) console.log("366 days");
         else console.log("365 days");
     </script>

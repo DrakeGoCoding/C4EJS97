@@ -34,8 +34,10 @@
                 return (eNum - 400) * from_401 + 50 * from_0_to_50 + 50 * from_51_to_100 + 100 * from_101_to_200 + 100 * from_201_to_300 + 100 * from_301_to_400;
             }
         }
+        
         let eNum = parseInt(prompt("Enter electricity number: "));
-        console.log(calculateElectricityBill(eNum));
+
+        console.log(`Bill: ${calculateElectricityBill(eNum)}`);
     </script>
 </body>
 </html>
