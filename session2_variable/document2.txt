@@ -8,7 +8,11 @@ II. Phân loại biến
 III. Syntax
 1. Declaration
     var variable_name;
-    let variable_name;
+    let variable_name; // blocked scope {}, recommended
+Ex: {
+        let a = 1;
+    }
+    // outside this block, a is unused;
 
 2. Assignment
     variable_name = value;
@@ -19,5 +23,14 @@ III. Syntax
 
 4. Get data from user
     var/let variable_name = prompt("User Data");
+                                |
+    *note: return a string  <----
 
-    *note: return a string
+IV. Name convention
+
+- only contain alphabetical [A-Z], [a-z] and numerical [0-9] letters
+- do not start with any numbers
+- not named by keyword
+- sensitive case: A != a
+- camel case: + only 1 word: name, age, ...
+              + +2 words: dateOfBirth, orderList, ...
