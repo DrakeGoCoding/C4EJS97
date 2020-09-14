@@ -1,0 +1,36 @@
+I. What is datatype?
+II. Category
+
+Number: Integer, Float
+String
+Boolean: True, False
+Array
+Object
+
+1. Number
+    let a = 5;          //Number(Integer)
+    let b = 3.14;       //Number(Float)
+
+    let c = 2;          //Number(Integer)
+    let d = a / c;      //Number(Float) autoComplete :))
+
+    *Force datatype:    - force number: Number(var);
+                        - force string to integer: parseInt(var);
+                        - force string to float: parseFloat(var);
+                        - force string: String(var) or use method toString()
+
+    *Number operation:
+        let a = b + c;
+        let a = a + 5; // let a; a += 5
+        Similarly for -, *, /, %
+        a++, a-- (increment after execution)
+        ++a, --a (increment before execution)
+
+2. String
+    let name = "Bob";  // or let name = 'Bob';
+    let greeting = `Hi ${name}`;             
+
+    *Note:  - String + String = String
+            - |String {-*/} String = |NaN(if exists in either string a non-number character)
+              |Number {-*/} String   |Number
+              |String {-*/} Number
