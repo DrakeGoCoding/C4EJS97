@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise16</title>
+</head>
+<body>
+    <script>
+        function isPrime(num){
+            if (num % 2 === 0) return false;
+            for (let i = 3 ; i <= Math.sqrt(num) ; i += 2){
+                if (num % i === 0) return false;
+            }
+            console.log(`${num} is prime`);
+            return true;
+        }
+
+        function isSquare(num){
+            let subNum = Math.sqrt(num);
+            if (Number.isInteger(subNum)){
+                if (subNum === 0) return false;
+                console.log(`${num} is square`);
+                return true;
+            }
+        }
+
+        function isComposite(num){
+            let compositeString = "";
+            let count = 0;
+            if (num <= 3) return false;
+            for (let i = 1 ; i <= num ; i++){
+                if (num % i === 0){
+                    compositeString += (i + " ");
+                    count++;
+                }
+            }
+            if (count <= 2) return false;
+            console.log(`${num} is composite with divisor list: ${compositeString}`);
+            return true;
+        }
+
+        let num = parseInt(prompt("Enter an integer"));
+        isPrime(num);
+        isSquare(num);
+        isComposite(num);
+    </script>
+</body>
+</html>

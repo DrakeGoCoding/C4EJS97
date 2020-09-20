@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise17</title>
+</head>
+
+<body>
+    <script>
+
+        function firstLetterUpper(str) {
+            return str.charAt(0).toUpperCase() + str.slice(1);
+        }
+
+        function standardStringName(name) {
+            let resultString = "";
+
+            name = name.toLowerCase();
+            let tokenString = name.split(/[\s]+/);
+
+            for (let i = 0; i < tokenString.length; i++) {
+                if (tokenString[i].length == 0) continue;
+                resultString += firstLetterUpper(tokenString[i]);
+                if (i < tokenString.length - 1) resultString += " ";
+            }
+            return resultString;
+        }
+
+        let name = prompt("Enter your full name");
+        console.log(standardStringName(name));
+    </script>
+</body>
+
+</html>

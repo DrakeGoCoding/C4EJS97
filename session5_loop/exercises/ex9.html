@@ -7,7 +7,12 @@
 </head>
 <body>
     <script>
-        
+        let S = 0;
+        let N = parseInt(prompt("Enter N"));
+        for (let i = 1 ; i <= N ; i++){
+            S += 1 / (i * (i+1));
+        }
+        console.log(S);
     </script>
 </body>
 </html>

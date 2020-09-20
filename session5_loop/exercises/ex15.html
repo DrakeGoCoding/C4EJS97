@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise15</title>
+</head>
+
+<body>
+    <script>
+        let password;
+        do {
+            password = prompt("Enter your password");
+            if (password.length < 8) alert("Your password should be 8+ characters");
+            else if (!( password.includes("$") && 
+                        password.includes("%") && 
+                        password.includes("_"))) 
+                alert("Your password must contain all $, % and _");
+            else {
+                console.log("Successfully");
+                break;
+            }
+        } while (1);
+    </script>
+</body>
+
+</html>

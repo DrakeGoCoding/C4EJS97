@@ -1,0 +1,39 @@
+Syntax: 
+
+--------------------------------------------------------------------------
+if (condition1){             // if condition1 is true, tCode1 works 
+    // tCode1
+}
+else if (condition2){        // else if condition2 is true, tCode2 works
+    // tCode2
+}
+...
+else{                        // else fCode works
+    // fCode
+}
+--------------------------------------------------------------------------
+
+< > <= >= 
+== !=   : compare by value only
+=== !== : compare by both value and datatype
+
+A && B  : A and B
+A || B  : A or B
+!A      : not A
+
+!(A && B) -> !A || !B 
+!(A || B) -> !A && !B
+
+--------------------------------------------------------------------------
+switch(variable){
+    case value_1:
+        // code_1;
+        break;
+    case value_2:
+        // code_2:
+        break;
+    ...
+    default:
+        //code_N;
+}
+--------------------------------------------------------------------------
