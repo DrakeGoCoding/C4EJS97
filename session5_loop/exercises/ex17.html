@@ -17,11 +17,11 @@
         function standardStringName(name) {
             let resultString = "";
 
-            name = name.toLowerCase();
+            name = name.toLowerCase().trim();
             let tokenString = name.split(/[\s]+/);
+            console.log(tokenString);
 
             for (let i = 0; i < tokenString.length; i++) {
-                if (tokenString[i].length == 0) continue;
                 resultString += firstLetterUpper(tokenString[i]);
                 if (i < tokenString.length - 1) resultString += " ";
             }
