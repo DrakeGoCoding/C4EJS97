@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise6</title>
+</head>
+<body>
+    <script>
+        let array = [2, 0, 1, 8, 4, 2, 8, 8];
+        let num = Number(prompt("Enter a number: "));
+        let found = array.filter(
+            element => element > num
+        );
+        
+        if (found.length === 0) console.log(`No elements > ${num}`);
+        else console.log(`All numbers > ${num} in array: ${found}`);
+    </script>
+</body>
+</html>

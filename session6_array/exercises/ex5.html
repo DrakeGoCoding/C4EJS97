@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise5</title>
+</head>
+<body>
+    <script>
+        function secondHighest(array){
+            let max = Math.max.apply(null, array);
+            let subArray = array.filter(
+                function(x){
+                    return x !== max;
+                }
+            )
+            return Math.max.apply(null, subArray);
+        }
+
+        function secondLowest(array){
+            let min = Math.min.apply(null, array);
+            let subArray = array.filter(
+                function(x){
+                    return x !== min;
+                }
+            )
+            return Math.min.apply(null, subArray);
+        }
+
+        let array = [2, 0, 1, 8, 4, 2, 8, 8];
+        console.log(`Second highest number: ${secondHighest(array)}`);
+        console.log(`Second lowest number: ${secondLowest(array)}`);
+    </script>
+</body>
+</html>

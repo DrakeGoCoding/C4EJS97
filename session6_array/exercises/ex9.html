@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise9</title>
+</head>
+<body>
+    <script>
+        let array1 = [2, 0, 1, 8, 4, 2, 8, 8];
+        let array2 = [0, 9, 8, 2, 7, 7, 9, 8, 0, 9];
+
+        let array3 = array1.filter( (elem, index) => {
+            return array1.indexOf(elem) === index && array2.indexOf(elem) !== -1;
+        } ).sort();
+
+        console.log(`Common elements: ${array3}`);
+    </script>
+</body>
+</html>

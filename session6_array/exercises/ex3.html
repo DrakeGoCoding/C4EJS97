@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise3</title>
+</head>
+<body>
+    <script>
+        let array = [2, 0, 1, 8, 4, 2, 8, 8];
+        // let max = array[0];
+        // let min = array[0];
+
+        // for (let i = 1 ; i < array.length ; i++){
+        //     if (max < array[i]) max = array[i];
+        //     if (min > array[i]) min = array[i];
+        // }
+
+        let max = Math.max.apply(null, array);
+        let min = Math.min.apply(null, array);
+
+        console.log(`Max: ${max}`);
+        console.log(`Min: ${min}`);
+    </script>
+</body>
+</html>
