@@ -3,3 +3,11 @@ Syntax:
 for (initialization ; condition ; increment){
     // code
 }
+
+while (condition){
+    // code
+}
+
+do{
+    //code
+} while (condition);
