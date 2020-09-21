@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise4</title>
+</head>
+
+<body>
+    <script>
+        function pronounceDigit(num){
+            let string;
+            switch (num) {
+                case 0:
+                    return "zero";
+                
+                case 1: 
+                    return "one";
+                
+                case 2: 
+                    return "two";
+                
+                case 3: 
+                    return "three";
+                
+                case 4: 
+                    return "four"; 
+                
+                case 5: 
+                    return "five";
+                
+                case 6: 
+                    return "six"; 
+                
+                case 7: 
+                    return "seven"; 
+                
+                case 8: 
+                    return "eight"; 
+                
+                case 9: 
+                    return "nine";
+
+                default:
+                    break;
+            }
+        }
+        
+        function pronounceInteger(num) {
+            let string = "";
+            let remainder;
+            let isNegative = false;
+
+            if (num < 0) {
+                isNegative = true;
+                num /= -1;
+            }
+
+            while (num > 0) {
+                remainder = num % 10;
+                string = pronounceDigit(remainder) + " " + string;
+                num = Math.floor(num / 10);
+            } 
+
+            if (isNegative) string = "minus " + string;
+
+            console.log(string);
+        }
+
+        let num = Number(prompt("Enter an integer"));
+        console.log(num);
+        pronounceInteger(num);
+    </script>
+</body>
+
+</html>

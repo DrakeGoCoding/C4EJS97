@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise3</title>
+</head>
+<body>
+    <script>
+        function GCD(a, b){
+            while (a != b){
+                if (a > b) a -= b;
+                if (a < b) b -= a;
+            }
+            return a;
+        }
+
+        function LCM(a, b){
+            return a * b / GCD(a, b);
+        }
+
+        let a = 12;
+        let b = 9;
+
+        console.log(`GCD(${a}, ${b}): ${GCD(a, b)}`);
+        console.log(`LCM(${a}, ${b}): ${LCM(a, b)}`);
+    </script>
+</body>
+</html>

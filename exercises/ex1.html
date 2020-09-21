@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise1</title>
+</head>
+<body>
+    <script>
+
+        function factorial(num){
+            if (num < 0) return undefined;
+            if (num === 0 || num === 1) return 1;
+            for (let i = num - 1 ; i >= 1; i--){
+                num *= i;
+            }
+            return num;
+        }
+
+        let N = parseInt(prompt("Enter N: "));
+        let x = Number(prompt("Enter x: "));
+        let S_a = 0;
+        let S_b = 0;
+
+        for (let i = 0 ; i <= N ; i++){
+            S_a += Math.pow(x, i);
+        }
+
+        for (let i = 1 ; i <= N ; i++){
+            S_b += factorial(i);
+        }
+        console.log(S_a);
+        console.log(S_b);
+    </script>
+</body>
+</html>

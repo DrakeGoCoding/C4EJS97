@@ -1,0 +1,47 @@
+Syntax:
+
+- Initialization: 
+    let array_name = [];
+    let array_name = [value1, value2, ...];
+
+- Get value by index:
+    array_name[index] => value at index
+where index in [0, length)
+
+- Get array length:
+    let array_length = array_name.length
+
+- looping array:
+    for (let i = 0 ; i < array_name.length ; i++){
+        array_name[i] ...
+    }
+
+- Adding elements:
+    // Add to back
+    array_name.push(value);
+    array_name.push(value1, value2);
+
+    // Add to front
+    array_name.unshift(value);
+    array_name.unshift(value1, value2);
+
+- Update elements:
+    array_name[index] = new_value;
+
+    // if index not in [0, length)
+    Ex:
+        let a = [0, 1, 2, 3];
+        a[5] = 5
+        => a = [0, 1, 2, 3, empty, 5]
+        a[8] = 8
+        => a = [0, 1, 2, 3, empty, 5, empty, empty, 8]
+
+- Remove elements:
+    // Remove 'count' elements beginning from index (and return the removed items)
+    let removeElememts = array_name.splice(index, count);
+
+    // Remove the final element (and return that element)
+    let lastElement = array_name.pop();
+
+    // Remove the first element (and return that element)
+    let firstElement = array_name.shift();
