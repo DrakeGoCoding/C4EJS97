@@ -9,6 +9,15 @@
 
 <body>
     <script>
+
+        function traverseLink(link, keyword) {
+            if (link.name.includes(keyword)) console.log(link.name);
+            if (!link.isFolder) return;
+            for (let i = 0 ; i < link.content.length; i++){
+                traverseLink(link.content[i], keyword);
+            }
+        }
+
         let images = {
             "name": "images",
             "isFolder": true,
@@ -52,6 +61,9 @@
                 }
             ]
         }
+
+        let keyword = prompt("Enter a keyword for a file");
+        traverseLink(images, keyword.toLowerCase());
 
     </script>
 </body>

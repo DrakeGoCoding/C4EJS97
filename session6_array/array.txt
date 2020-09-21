@@ -45,3 +45,4 @@ where index in [0, length)
 
     // Remove the first element (and return that element)
     let firstElement = array_name.shift();
+
