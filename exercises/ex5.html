@@ -80,16 +80,17 @@
         }
 
         let keyword = prompt("Enter a keyword for a file");
+        let start, stop;
 
-        var start1 = performance.now();
+        start = performance.now();
         traverseLink(images, keyword.toLowerCase());
-        var stop1 = performance.now();
+        stop = performance.now();
+        console.log(stop - start);
 
-        var start2 = performance.now();
+        start = performance.now();
         nonRecursiveTraverseLink(images, keyword.toLowerCase());
-        var stop2 = performance.now();
-
-        console.log(stop1 - start1, stop2 - start2);
+        stop = performance.now();
+        console.log(stop - start);
     </script>
 </body>
 
