@@ -1,0 +1,11 @@
+function fName1(parameters){
+    // code
+}
+
+function fName2(parameters){
+    // code
+    return ...;
+}
+
+fName1(variables);
+let var = fName2(variables);

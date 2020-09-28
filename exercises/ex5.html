@@ -11,10 +11,27 @@
     <script>
 
         function traverseLink(link, keyword) {
-            if (link.name.includes(keyword)) console.log(link.name);
-            if (!link.isFolder) return;
-            for (let i = 0 ; i < link.content.length; i++){
+            if (link.name.includes(keyword) && !link.isFolder) {
+                // console.log(link.name);
+                return;
+            }
+            for (let i = 0; i < link.content.length; i++) {
                 traverseLink(link.content[i], keyword);
+            }
+        }
+
+        function nonRecursiveTraverseLink(link, keyword) {
+            let queue = [];
+            queue.unshift(link);
+            while (queue.length !== 0) {
+                let recLink = queue.pop();
+                for (let i = 0; i < recLink.content.length; i++) {
+                    let value = recLink.content[i];
+                    queue.unshift(value);
+                    if (value.name.includes(keyword) && !value.isFolder) {
+                        // console.log(value.name);
+                    }
+                }
             }
         }
 
@@ -63,8 +80,16 @@
         }
 
         let keyword = prompt("Enter a keyword for a file");
-        traverseLink(images, keyword.toLowerCase());
 
+        var start1 = performance.now();
+        traverseLink(images, keyword.toLowerCase());
+        var stop1 = performance.now();
+
+        var start2 = performance.now();
+        nonRecursiveTraverseLink(images, keyword.toLowerCase());
+        var stop2 = performance.now();
+
+        console.log(stop1 - start1, stop2 - start2);
     </script>
 </body>
 

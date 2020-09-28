@@ -1,0 +1,35 @@
+Syntax:
+    let variable_name = { };    //empty object
+
+    let variable_name = {
+        key1: value1,
+        key2: value2,
+        ...
+        key_n: value_n
+    };
+
+To get a key's value:   variable_name[key_name]
+                        variable_name.key_name
+
+Add new key:            variable_name.new_key = new_value;
+                        variable_name["new_key"] = new_value;
+
+Modify a key's value:   variable_name.old_key = new_value;
+                        variable_name["old_key"] = new_value;
+
+Delete a key:           delete variable_name[key];
+                        delete variable_name.key;
+
+Traverse:
+    for (const key in variable_name){
+        variable_name[key] ...
+        ...
+    }
+
+Note: 
+    - key: string datatype only
+    - value: any datatype
+    - if >=1 keys with the same name are initialized in an object,
+    only the latest key are accepted
+     
+
