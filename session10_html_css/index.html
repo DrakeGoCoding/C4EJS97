@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="home.css">
+    <style>
+        caption{
+            font-size: 20pt;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        table, th, td{
+            border: 1px solid black;
+            text-align: center;
+        }
+        thead{
+            color: green
+        }
+        tbody{
+            color: red;
+        }
+        tfoot{
+            color: blue;
+        }
+    </style>
+</head>
+
+<body style="width: 800px;">
+    <!-- heading -->
+    <h1 style="color: red; background-color: cornflowerblue">This is heading 1</h1>
+    <h2>This is heading 2</h2>
+    <h3>This is heading 3</h3>
+    <h4>This is heading 4</h4>
+    <h5>This is heading 5</h5>
+    <h6>This is heading 6</h6>
+
+    <!-- unordered list -->
+    <ul type="square">
+        <li>Learn Javascript</li>
+        <li>Learn Html</li>
+        <li>Learn Css</li>
+    </ul>
+
+    <!-- ordered list -->
+    <ol>
+        <li>Learn Javascript
+            <ol type="a">
+                <li>Sesson 1: Intro</li>
+                <li>Sesson 2: Variable</li>
+                <li>Session 3: Datatype</li>
+            </ol>
+        </li>
+        <li>Learn Html</li>
+        <li>Learn Css</li>
+    </ol>
+
+    <!-- load image by a link -->
+    <img src="https://nld.mediacdn.vn/thumb_w/540/2019/11/11/photo-1-1573452276870151476765.jpg"
+        alt="This message will appear for non-graphical purposes">
+
+    <!-- paragraph, in this tag we can wrap only text -->
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quaerat, aspernatur. Pariatur harum at, optio minus
+        repellendus dolores, sunt eveniet quis laudantium ipsam asperiores fugit, necessitatibus sed atque adipisci
+        laborum vel.</p>
+
+    <!-- division, in this tag we can wrap other tags -->
+    <div>
+        <h3>This is a heading in a div element</h3>
+        <p>This is a paragraph in a div element</p>
+    </div>
+
+    <!-- link -->
+    <a href="http://google.com">Click on this link to access google.com</a>
+
+    <!-- line break -->
+    <br> <br> <br> <br>
+
+    <!-- horizontal line -->
+    <hr>
+
+    <!-- <button></button> -->
+    <button>Click me</button>
+
+    <!-- table -->
+    <table>
+        <caption>Table Title</caption>
+        
+        <!-- group of table headings -->
+        <thead>
+            <!-- table row -->
+            <tr>
+                <th>Heading 1</th>
+                <th>Heading 2</th>
+                <th>Heading 3</th>
+                <th colspan="2">Heading 4 is a span of 2 columns</th>
+            </tr>
+        </thead>
+
+        <!-- table body -->
+        <tbody>
+            <tr>
+                <!-- table cell -->
+                <td rowspan="2">Cell 1</td>
+                <td>Cell 2</td>
+                <td>Cell 3</td>
+                <td>Cell 4</td>
+                <td>Cell 5</td>
+            </tr>
+
+            <tr>
+                <td>Cell 6</td>
+                <td>Cell 7</td>
+                <td>Cell 8</td>
+                <td>Cell 9</td>
+            </tr>
+        </tbody>
+
+        <!-- table foot -->
+        <tfoot>
+            <tr>
+                <td colspan="4">Foot 1</td>
+                <td>Foot 2</td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+
+</html>

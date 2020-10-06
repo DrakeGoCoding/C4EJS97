@@ -1,0 +1,11 @@
+AJAX = Asynchronous Javascript And XML (not programming language)
+
+- use a combination of 
+    + A browser built-in XMLHttpRequest object 
+    (to request data from a web server)
+    + Javascript and HTML DOM (to display or use the data)
+
+- we can:
+    + read data from a web server - after the page has loaded
+    + update a webpage without reloading the page
+    + send data to a web server - in the background
