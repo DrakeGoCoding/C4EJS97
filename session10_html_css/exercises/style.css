@@ -35,16 +35,22 @@ img{
     width: 660px;
 }
 
+.extent{
+    margin-left: 75pt;
+}
+
+.extended-link-list>li>a{
+    text-decoration: none;
+    color: cornflowerblue;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11pt;
+}
+
 #title{
     width: 770px;
     height: 80px;
     font-size: 27pt;
-}
-
-
-
-.extent{
-    margin-left: 75pt;
 }
 
 #extent-header{
@@ -55,10 +61,3 @@ img{
     padding-left: 5pt;
 }
 
-.extended-link-list>li>a{
-    text-decoration: none;
-    color: cornflowerblue;
-    font-weight: bold;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 11pt;
-}
