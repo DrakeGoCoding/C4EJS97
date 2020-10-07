@@ -1,0 +1,17 @@
+caption{
+    font-size: 20pt;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+table, th, td{
+    border: 1px solid black;
+    text-align: center;
+}
+thead{
+    color: green
+}
+tbody{
+    color: red;
+}
+tfoot{
+    color: blue;
+}
