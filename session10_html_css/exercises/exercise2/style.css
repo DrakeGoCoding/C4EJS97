@@ -1,0 +1,63 @@
+*{
+    font-family: 'Roboto', sans-serif;
+}
+
+.my-profile{
+    width: 500pt;
+    border: 5pt solid gray;
+    margin: auto;
+    text-align: center;
+    /* clock-wise */
+    padding: 20px 10px 5px 10px;
+    border-radius: 10px;
+    box-shadow: 10px 10px 8px #888888;
+}
+
+.my-avatar img{
+    border-radius: 50%;
+    width: 300pt;
+    height: 300pt;
+}
+
+.my-info .my-name{
+    font-size: 30pt;
+    font-style: italic;
+    color: deepskyblue;
+    margin-bottom: 10pt;
+}
+
+.my-info .my-work{
+    font-size: 15pt;
+    margin-bottom: 10pt;
+}
+
+.my-lang{
+    display: flex;
+}
+
+.my-lang .lang-item{
+    flex: 20%;
+    color: whitesmoke;
+    font-size: 20pt;
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+    font-weight: bold;
+    padding: 10px;
+    text-transform: uppercase;
+}
+
+.my-lang .html{
+    background-color: red;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.my-lang .js{
+    background-color: #ffeb3b;
+}
+
+.my-lang .css{
+    background-color: deepskyblue;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}

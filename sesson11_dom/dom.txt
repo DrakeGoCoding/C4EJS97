@@ -1,0 +1,7 @@
+DOM = Document Object Model
+
+Important method:
+    - getElementById() => 1 dom 
+    - getElementsByClassName() => 1 array of doms
+    - getElementsByName() => 1 array of doms
+        name: an html property
