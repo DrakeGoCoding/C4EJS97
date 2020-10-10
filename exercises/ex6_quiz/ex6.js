@@ -227,47 +227,50 @@ class QuizGame {
         this.shuffleQuestion();
     }
 
-    displayQuestion() {
-        quizZone.innerHTML = '';
+    shuffleQuestion() {
+        this.questionList = shuffleArray(this.questionList);
         for (let i = 0; i < this.questionList.length; i++) {
-            let question = this.questionList[i];
-            quizZone.innerHTML += `
-            <div class="quiz-count">Quiz: ${i + 1}/${this.questionList.length}</div> <br>
-            <div class="quiz">Question: ${this.questionList[i].question}</div> <br>
+            shuffleArray(this.questionList[i].answers);
+        }
+    }
+
+    displayQuestion(index, question, answers) {
+        quizZone.innerHTML = '';
+        quizZone.innerHTML += `
+            <div class="quiz-count">Quiz: ${index}/${this.questionList.length}</div> <br>
+            <div class="quiz">Question: ${question}</div> <br>
             <div class="quiz-answer">
                 <div class="quiz-A-container">
                     <div class="quiz-answer-A">
-                        A. ${this.questionList[i].answers[0].answer}
+                        A. ${answers[0].answer}
                     </div>                     
                 </div>
                 <div class="quiz-B-container">
                     <div class="quiz-answer-B">
-                        B. ${this.questionList[i].answers[1].answer}
+                        B. ${answers[1].answer}
                     </div>                     
                 </div>
                 <div class="quiz-C-container">
                     <div class="quiz-answer-C">
-                        C. ${this.questionList[i].answers[2].answer}
+                        C. ${answers[2].answer}
                     </div>                     
                 </div>
                 <div class="quiz-D-container">
                     <div class="quiz-answer-D">
-                        D. ${this.questionList[i].answers[3].answer}
+                        D. ${answers[3].answer}
                     </div>                     
                 </div>
             </div>
             <br>
             <div class="quiz-result">Correct!</div>
             <span class="X" draggable="true">&times;</span>
-            `
-            break;
-        }
+        `
     }
 
-    shuffleQuestion() {
-        this.questionList = shuffleArray(this.questionList);
-        for (let i = 0; i < this.questionList.length; i++) {
-            shuffleArray(this.questionList[i].answers);
+    start(){
+        for (let i = 0 ; i < this.questionList.length ; i++){
+            this.displayQuestion(i+1, this.questionList[i].question, this.questionList[i].answers);
+            break;
         }
     }
 }
@@ -290,13 +293,12 @@ let quizZone = document.querySelector(".quiz-zone");
 let quizIntro = document.querySelector("section");
 let startBtn = document.querySelector("button");
 let exitBtn = document.querySelector(".X");
-console.dir(exitBtn);
 
 startBtn.addEventListener("click", function () {
     quizZoneParent.style.display = "block";
     quizIntro.style.filter = "blur(5px)";
     let quizGame = new QuizGame(questions);
-    quizGame.displayQuestion();
+    quizGame.start();
 });
 
 exitBtn.addEventListener("click", function (e) {
