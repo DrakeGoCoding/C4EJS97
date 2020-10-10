@@ -1,0 +1,80 @@
+CSS = cascading style sheets
+
+syntax:
+    property: value;
+
+    Ex: 
+        color: red;
+        font: Arias;
+        width: 30px;
+        height: 50px;
+        position: fixed;
+
+position: 
+    - inline: in HTML's "style" property
+    --------------------------------------------------
+    - internal: in <style> tag (usually in <head> tag)
+    - external: in a .css file through <link> tag
+        Syntax:
+            selector{
+                property1: value1;
+                property2: value2;
+            }
+
+    - priority: inline -> internal -> external
+
+selector:
+    - all tags
+    *{
+        // code
+    }
+
+    - all tags with tag_name 
+    tag_name{
+        // code
+    }
+
+    - all tags belong to class_name
+    .class_name{
+        // code
+    }
+    
+    - tag with id
+    #id{
+        // code
+    }
+
+    - all tags with tag_name that belong to class_name
+    tag_name.class_name{
+        // code
+    }
+
+    (lame, use for clarification purposes only)
+    - tag_name#id{
+        // code
+    }
+
+    - all tags that belongs to both class1 and class2 coincidently
+    .class1.class2{
+        // code
+    }
+
+    - all tags that belongs to either selector1 or selector2
+    selector1,selector2{
+        // code
+    }
+
+    - all tags that belongs to selector2, which is also a child of selector1
+    selector1 selector2{
+        // code
+    }
+
+    - all tags that belongs to selector2, which is a direct child of selector1
+    selector1>selector2{
+        // code
+    }
+
+    - all tags when dragging mouse over selector
+    selector:hover{
+
+    }
