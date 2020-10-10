@@ -222,25 +222,55 @@ let questions = [
 ]
 
 class QuizGame {
-    constructor(questionList){
+    constructor(questionList) {
         this.questionList = questionList;
         this.shuffleQuestion();
     }
 
-    displayQuestion(){
-        console.log(this.questionList);
+    displayQuestion() {
+        quizZone.innerHTML = '';
+        for (let i = 0; i < this.questionList.length; i++) {
+            let question = this.questionList[i];
+            quizZone.innerHTML += `
+            <div class="quiz-count">Quiz: ${i + 1}/${this.questionList.length}</div> <br>
+            <div class="quiz">Question: ${this.questionList[i].question}</div> <br>
+            <div class="quiz-answer">
+                <div class="quiz-A-container">
+                    <div class="quiz-answer-A">
+                        A. ${this.questionList[i].answers[0].answer}
+                    </div>                     
+                </div>
+                <div class="quiz-B-container">
+                    <div class="quiz-answer-B">
+                        B. ${this.questionList[i].answers[1].answer}
+                    </div>                     
+                </div>
+                <div class="quiz-C-container">
+                    <div class="quiz-answer-C">
+                        C. ${this.questionList[i].answers[2].answer}
+                    </div>                     
+                </div>
+                <div class="quiz-D-container">
+                    <div class="quiz-answer-D">
+                        D. ${this.questionList[i].answers[3].answer}
+                    </div>                     
+                </div>
+            </div>
+            <br>
+            <div class="quiz-result">Correct!</div>
+            <span class="X" draggable="true">&times;</span>
+            `
+            break;
+        }
     }
 
-    shuffleQuestion(){
+    shuffleQuestion() {
         this.questionList = shuffleArray(this.questionList);
-        for (let i = 0 ; i < this.questionList.length ; i++){
+        for (let i = 0; i < this.questionList.length; i++) {
             shuffleArray(this.questionList[i].answers);
         }
     }
 }
-
-let quizGame = new QuizGame(questions);
-quizGame.displayQuestion();
 
 // Fisher-Yates shuffle algorithm
 function shuffleArray(array) {
@@ -253,5 +283,26 @@ function shuffleArray(array) {
     }
     return array;
 }
+
+//same as [ let quizZoneParent1 = document.getElementsByClassName("quiz-zone-parent")[0] ];
+let quizZoneParent = document.querySelector(".quiz-zone-parent");
+let quizZone = document.querySelector(".quiz-zone");
+let quizIntro = document.querySelector("section");
+let startBtn = document.querySelector("button");
+let exitBtn = document.querySelector(".X");
+console.dir(exitBtn);
+
+startBtn.addEventListener("click", function () {
+    quizZoneParent.style.display = "block";
+    quizIntro.style.filter = "blur(5px)";
+    let quizGame = new QuizGame(questions);
+    quizGame.displayQuestion();
+});
+
+exitBtn.addEventListener("click", function (e) {
+    quizZoneParent.style.display = "none";
+    quizIntro.style.filter = "blur(0px)";
+    delete quizGame;
+})
 
 

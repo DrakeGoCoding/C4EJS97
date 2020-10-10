@@ -5,31 +5,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exercise6</title>
-    <link rel="stylesheet" href="ex6.css">
+    <link rel="stylesheet" href="QuizIntro.css">
+    <link rel="stylesheet" href="QuizZone.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,600&display=swap" rel="stylesheet">
 </head>
 
 <body>
+
     <div class="main">
-        <div class="quiz-intro">
-            <div class="title">Greek Mythology</div> 
-            <br>
-            <div class="intro">In Greek Mythology, who flew too close to the Sun? Spread your mental wings in this odyssey of mythical gods, goddesses, and famous characters of Greek Mythology</div>
-            <br>         
-        </div>
-        <div class="quiz-zone">
-            <div class="quiz-count">Quiz 1/10</div> <br>
-            <th class="quiz">Question: 1+1=?</th>
-            <div class="quiz-answer">
-                <div class="quiz-answer quiz-A">A. 1</div>
-                <div class="quiz-answer quiz-B">B. 2</div>
-                <div class="quiz-answer quiz-C">C. 3</div>
-                <div class="quiz-answer quiz-D">D. 4</div>
+        <section>
+            <div class="quiz-intro">
+                <div class="title">Greek Mythology</div>
+                <br>
+                <div class="intro">In Greek Mythology, who flew too close to the Sun? Spread your mental wings in this
+                    odyssey of mythical gods, goddesses, and famous characters of Greek Mythology</div>
+                <br>
+                <button type="button">Start This Quiz</button>
             </div>
-            <br>
-            <div class="quiz-result">Correct!</div>
+        </section>
+
+        <div class="quiz-zone-parent">
+            <div class="quiz-zone">
+                <div class="quiz-count">Quiz: 1/10</div> <br>
+                <div class="quiz">Question: 1+1=?</div> <br>
+                <div class="quiz-answer">
+                    <div class="quiz-A-container">
+                        <div class="quiz-answer-A">
+                            A. 1
+                        </div>                     
+                    </div>
+                    <div class="quiz-B-container">
+                        <div class="quiz-answer-B">
+                            B. 2
+                        </div>                     
+                    </div>
+                    <div class="quiz-C-container">
+                        <div class="quiz-answer-C">
+                            C. 3
+                        </div>                     
+                    </div>
+                    <div class="quiz-D-container">
+                        <div class="quiz-answer-D">
+                            D. 4
+                        </div>                     
+                    </div>
+                </div>
+                <br>
+                <div class="quiz-result">Correct!</div>
+                <span class="X" draggable="true">&times;</span>
+            </div> 
         </div>
+
     </div>
     <script src="ex6.js"></script>
 </body>
