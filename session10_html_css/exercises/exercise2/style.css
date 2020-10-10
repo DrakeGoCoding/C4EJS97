@@ -19,6 +19,11 @@
     height: 300pt;
 }
 
+.my-avatar img:hover{
+    transition: all 2s linear;
+    transform: rotateY(360deg);
+}
+
 .my-info .my-name{
     font-size: 30pt;
     font-style: italic;
