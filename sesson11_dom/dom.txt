@@ -5,3 +5,4 @@ Important method:
     - getElementsByClassName() => 1 array of doms
     - getElementsByName() => 1 array of doms
         name: an html property
+    - getElementsByTagName() => 1 array of doms 
