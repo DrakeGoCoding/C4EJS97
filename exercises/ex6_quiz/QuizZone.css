@@ -9,7 +9,7 @@
 
 .quiz-zone{
     background: white;
-    width: 70%;
+    width: 50%;
     padding: 30px;
     border-radius: 10px;
     position: absolute;
@@ -40,4 +40,51 @@
 
 section{
     transition: 1s;
+}
+
+.quiz{
+    text-align: center;
+    font-size: 30px;
+}
+
+.quiz-container{
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px -5px;
+    text-align: center;
+    padding: 20px 0 20px 0;
+    margin-bottom: 10px;
+}
+
+.quiz-container:hover{
+    color:  #2095F3;
+    border: 1px solid #2095F3;
+    cursor: pointer;
+}
+
+.quiz-result{
+    text-align: end;
+}
+
+.bottom-container{
+    display: flex;
+}
+
+.next-button{
+    flex: 15%;
+    background: #6f0c0c;
+    color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 5px 8px -5px;
+    padding: 10px 0 10px 0;
+    text-align: center;
+    height: 25px;
+    display: none;
+}
+
+.quiz-result{
+    flex: 85%;
+    text-align: right;
+    padding: 10px 0 10px 0;
 }

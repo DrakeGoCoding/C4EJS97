@@ -39,7 +39,7 @@ section{
     font-size: 18pt;
 }
 
-button{
+.start-button{
     margin: 0 auto;
     height: 60px;
     width: 300px;
@@ -50,4 +50,13 @@ button{
     font-size: 25px;
     font-family: sans-serif;
     cursor: pointer;
+}
+
+.start-button:hover{
+    background: white;
+    color: #795548;
+}
+
+div{
+    user-select: none;
 }

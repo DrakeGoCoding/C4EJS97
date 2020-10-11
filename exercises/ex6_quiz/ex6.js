@@ -235,43 +235,63 @@ class QuizGame {
     }
 
     displayQuestion(index, question, answers) {
-        quizZone.innerHTML = '';
-        quizZone.innerHTML += `
-            <div class="quiz-count">Quiz: ${index}/${this.questionList.length}</div> <br>
-            <div class="quiz">Question: ${question}</div> <br>
-            <div class="quiz-answer">
-                <div class="quiz-A-container">
-                    <div class="quiz-answer-A">
-                        A. ${answers[0].answer}
-                    </div>                     
-                </div>
-                <div class="quiz-B-container">
-                    <div class="quiz-answer-B">
-                        B. ${answers[1].answer}
-                    </div>                     
-                </div>
-                <div class="quiz-C-container">
-                    <div class="quiz-answer-C">
-                        C. ${answers[2].answer}
-                    </div>                     
-                </div>
-                <div class="quiz-D-container">
-                    <div class="quiz-answer-D">
-                        D. ${answers[3].answer}
-                    </div>                     
-                </div>
-            </div>
-            <br>
-            <div class="quiz-result">Correct!</div>
-            <span class="X" draggable="true">&times;</span>
-        `
+        index += 1;
+        quizCount.innerHTML = `Quiz: ${index}/${this.questionList.length}`;
+        quizTitle.innerHTML = question;
+        for (let i = 0; i < answerBtns.length; i++) {
+            let answerBtn = answerBtns[i];
+            answerBtn.children[0].innerHTML = answers[i].answer;
+        }
     }
 
-    start(){
-        for (let i = 0 ; i < this.questionList.length ; i++){
-            this.displayQuestion(i+1, this.questionList[i].question, this.questionList[i].answers);
-            break;
+    start() {
+        quizIndex = 0;
+        this.nextQuestion();
+    }
+
+    end() {
+        console.log("ahihi");
+    }
+
+    nextQuestion() {
+        currentQuestion = this.questionList[quizIndex];
+        if (currentQuestion) {
+            this.displayQuestion(quizIndex++, currentQuestion.question, currentQuestion.answers);
         }
+        else {
+            end();
+        }
+    }
+
+    checkAnswer(question, answer) {
+        for (let i = 0; i < question.answers.length; i++) {
+            let a = question.answers[i];
+            if (a.answer === answer && a.isCorrect)
+                return true;
+        }
+        return false;
+    }
+
+    showAnswer(question, answer) {
+        let isCorrectAnswer = this.checkAnswer(question, answer);
+        if (isCorrectAnswer) {
+            currentAnswerBtn.style.background = "#2095F3";
+            currentAnswerBtn.style.color = "white";
+            quizResult.innerHTML = "Correct!";
+        }
+        else {
+            currentAnswerBtn.style.background = "#ff4a5a";
+            currentAnswerBtn.style.color = "white";
+            quizResult.innerHTML = "Incorrect!";
+        }
+    }
+
+    prepareNextQuestion(){
+        quizAnswerZone.setAttribute('quiz-container', '');
+        currentAnswerBtn.style.background = "white";
+        currentAnswerBtn.style.color = "black";
+        nextBtn.style.display = "none";
+        quizResult.innerHTML = "";
     }
 }
 
@@ -287,24 +307,47 @@ function shuffleArray(array) {
     return array;
 }
 
-//same as [ let quizZoneParent1 = document.getElementsByClassName("quiz-zone-parent")[0] ];
-let quizZoneParent = document.querySelector(".quiz-zone-parent");
-let quizZone = document.querySelector(".quiz-zone");
 let quizIntro = document.querySelector("section");
-let startBtn = document.querySelector("button");
+let startBtn = document.querySelector(".start-button");
+let quizZoneParent = document.querySelector(".quiz-zone-parent");
+let quizZone = document.querySelector(".quiz-zone-question");
+let quizAnswerZone = document.querySelector(".quiz-answer-zone");
+let quizCount = document.querySelector(".quiz-count");
+let quizTitle = document.querySelector(".quiz");
 let exitBtn = document.querySelector(".X");
+let answerBtns = document.querySelectorAll(".quiz-container");
+let nextBtn = document.querySelector(".next-button");
+let quizResult = document.querySelector(".quiz-result");
 
-startBtn.addEventListener("click", function () {
+let quizIndex;
+let currentQuestion;
+let currentAnswer;
+let currentAnswerBtn;
+let quizGame;
+
+startBtn.addEventListener("click", () => {
+    quizGame = new QuizGame(questions);
     quizZoneParent.style.display = "block";
     quizIntro.style.filter = "blur(5px)";
-    let quizGame = new QuizGame(questions);
     quizGame.start();
 });
 
-exitBtn.addEventListener("click", function (e) {
+exitBtn.addEventListener("click", () => {
     quizZoneParent.style.display = "none";
     quizIntro.style.filter = "blur(0px)";
-    delete quizGame;
+    quizGame.end();
+});
+
+answerBtns.forEach(button => {
+    button.addEventListener("dblclick", () => {
+        currentAnswerBtn = button;
+        currentAnswer = button.children[0].innerHTML;
+        quizGame.showAnswer(currentQuestion, currentAnswer);
+        nextBtn.style.display = "block";
+    })
+});
+
+nextBtn.addEventListener("click", () => {
+    quizGame.prepareNextQuestion();
+    quizGame.nextQuestion();
 })
-
-
