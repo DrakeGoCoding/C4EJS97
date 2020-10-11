@@ -250,6 +250,8 @@ class QuizGame {
     }
 
     end() {
+        quizZoneParent.style.display = "none";
+        quizIntro.style.filter = "blur(0px)";
         console.log("ahihi");
     }
 
@@ -259,7 +261,7 @@ class QuizGame {
             this.displayQuestion(quizIndex++, currentQuestion.question, currentQuestion.answers);
         }
         else {
-            end();
+            this.end();
         }
     }
 
@@ -275,6 +277,7 @@ class QuizGame {
     showAnswer(question, answer) {
         let isCorrectAnswer = this.checkAnswer(question, answer);
         if (isCorrectAnswer) {
+            correctAnswerCount++;
             currentAnswerBtn.style.background = "#2095F3";
             currentAnswerBtn.style.color = "white";
             quizResult.innerHTML = "Correct!";
@@ -286,7 +289,7 @@ class QuizGame {
         }
     }
 
-    prepareNextQuestion(){
+    prepareNextQuestion() {
         quizAnswerZone.setAttribute('quiz-container', '');
         currentAnswerBtn.style.background = "white";
         currentAnswerBtn.style.color = "black";
@@ -318,11 +321,13 @@ let exitBtn = document.querySelector(".X");
 let answerBtns = document.querySelectorAll(".quiz-container");
 let nextBtn = document.querySelector(".next-button");
 let quizResult = document.querySelector(".quiz-result");
+let quizExitWarningZone = document.querySelector(".quiz-exit-warning");
 
 let quizIndex;
 let currentQuestion;
 let currentAnswer;
 let currentAnswerBtn;
+let correctAnswerCount = 0;
 let quizGame;
 
 startBtn.addEventListener("click", () => {
