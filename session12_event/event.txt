@@ -1,0 +1,15 @@
+- events happen due to external impact (mouse, keyboard, screen touch, ...)
+    ex: click, right-click, double-click,
+        key-press, key-down, key-up,
+        on-load, on-error, ...
+
+- event handlers:
+
++ HTML: use HTML properties 
+    on + event name = ""
+
++ JS: use dom and addEventListener('event name', function())
+
+- event variable
+    * event
+    * this : event DOM
