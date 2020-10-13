@@ -50,20 +50,30 @@
 let phoneNameInput = document.getElementById("phone-name");
 let addBtn = document.getElementById("addBtn");
 let phoneListDom = document.getElementById("phone-list");
+let searchPhoneInput = document.getElementById('phone-search');
 let phoneList = [];
 
-function addPhone(){
-    let newPhone = phoneNameInput.value;
-    if (newPhone){
+function addPhone() {
+    let newPhone = phoneNameInput.value.trim();
+    if (newPhone) {
         phoneList.push(newPhone);
+        phoneNameInput.value = "";
+        displayPhoneList(phoneList);
     }
-    phoneNameInput.value = "";
-    displayPhoneList(phoneList);
 }
 
-function displayPhoneList(phoneList){
+function displayPhoneList(phoneList) {
     phoneListDom.innerHTML = "";
-    for (let i = 0 ; i < phoneList.length ; i++){
+    for (let i = 0; i < phoneList.length; i++) {
         phoneListDom.innerHTML += `<li>${phoneList[i]}</li>`;
-    }   
+    }
+}
+
+function recommendPhone(){
+    let searchPhone = searchPhoneInput.value.toLowerCase().trim();
+    phoneListDom.innerHTML = "";
+    let result = phoneList.filter(phone => {
+        return phone.toLowerCase().includes(searchPhone);
+    })
+    displayPhoneList(result);
 }
