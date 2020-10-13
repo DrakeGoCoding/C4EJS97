@@ -71,7 +71,7 @@ section{
 }
 
 .next-button{
-    flex: 15%;
+    flex: 25;
     background: #6f0c0c;
     color: #fff;
     border: 1px solid #ddd;
@@ -90,7 +90,7 @@ section{
 }
 
 .quiz-result{
-    flex: 85%;
+    flex: 75%;
     text-align: right;
     padding: 10px 0 10px 0;
 }

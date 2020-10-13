@@ -244,15 +244,15 @@ class QuizGame {
         }
     }
 
-    start() {
+    startGame() {
         quizIndex = 0;
         this.nextQuestion();
     }
 
-    end() {
+    endGame() {
         quizZoneParent.style.display = "none";
         quizIntro.style.filter = "blur(0px)";
-        console.log("ahihi");
+        console.log("end game");
     }
 
     nextQuestion() {
@@ -261,21 +261,18 @@ class QuizGame {
             this.displayQuestion(quizIndex++, currentQuestion.question, currentQuestion.answers);
         }
         else {
-            this.end();
+            this.endGame();
         }
     }
 
-    checkAnswer(question, answer) {
-        for (let i = 0; i < question.answers.length; i++) {
-            let a = question.answers[i];
-            if (a.answer === answer && a.isCorrect)
-                return true;
-        }
-        return false;
+    checkAnswer(question, userAnswer) {
+        return question.answers.some(a => {
+            return a.answer === userAnswer && a.isCorrect;
+        })
     }
 
-    showAnswer(question, answer) {
-        let isCorrectAnswer = this.checkAnswer(question, answer);
+    showAnswer(question, userAnswer) {
+        let isCorrectAnswer = this.checkAnswer(question, userAnswer);
         if (isCorrectAnswer) {
             correctAnswerCount++;
             currentAnswerBtn.style.background = "#2095F3";
@@ -290,9 +287,11 @@ class QuizGame {
     }
 
     prepareNextQuestion() {
-        quizAnswerZone.setAttribute('quiz-container', '');
-        currentAnswerBtn.style.background = "white";
-        currentAnswerBtn.style.color = "black";
+        isChosen = false;
+        answerBtns.forEach(button => {
+            let oldButton = button.setAttribute('style', '');
+            return oldButton;
+        });
         nextBtn.style.display = "none";
         quizResult.innerHTML = "";
     }
@@ -311,10 +310,9 @@ function shuffleArray(array) {
 }
 
 let quizIntro = document.querySelector("section");
-let startBtn = document.querySelector(".start-button");
+let startGameBtn = document.querySelector(".start-button");
 let quizZoneParent = document.querySelector(".quiz-zone-parent");
 let quizZone = document.querySelector(".quiz-zone-question");
-let quizAnswerZone = document.querySelector(".quiz-answer-zone");
 let quizCount = document.querySelector(".quiz-count");
 let quizTitle = document.querySelector(".quiz");
 let exitBtn = document.querySelector(".X");
@@ -328,27 +326,32 @@ let currentQuestion;
 let currentAnswer;
 let currentAnswerBtn;
 let correctAnswerCount = 0;
+let isChosen = false;
+
 let quizGame;
 
-startBtn.addEventListener("click", () => {
+startGameBtn.addEventListener("click", () => {
     quizGame = new QuizGame(questions);
     quizZoneParent.style.display = "block";
     quizIntro.style.filter = "blur(5px)";
-    quizGame.start();
+    quizGame.startGame();
 });
 
 exitBtn.addEventListener("click", () => {
     quizZoneParent.style.display = "none";
     quizIntro.style.filter = "blur(0px)";
-    quizGame.end();
+    quizGame.endGame();
 });
 
 answerBtns.forEach(button => {
     button.addEventListener("dblclick", () => {
-        currentAnswerBtn = button;
-        currentAnswer = button.children[0].innerHTML;
-        quizGame.showAnswer(currentQuestion, currentAnswer);
-        nextBtn.style.display = "block";
+        if (!isChosen){
+            currentAnswerBtn = button;
+            currentAnswer = button.children[0].innerHTML;
+            quizGame.showAnswer(currentQuestion, currentAnswer);
+            nextBtn.style.display = "block";  
+            isChosen = true;
+        }   
     })
 });
 
