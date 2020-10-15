@@ -289,10 +289,12 @@ class QuizGame {
 
     prepareNextQuestion() {
         isChosen = false;
+        quizZone.classList.remove("animate");
         answerBtns.forEach(button => {
             let oldButton = button.setAttribute('style', '');
             return oldButton;
         });
+        quizZone.classList.add("animate");
         quizBottomContainer.style.display = "none";
     }
 }
@@ -311,7 +313,8 @@ function shuffleArray(array) {
 
 let quizIntro = document.querySelector("section");
 let quizZoneParent = document.querySelector(".quiz-zone-parent");
-let quizZone = document.querySelector(".quiz-zone-question");
+let quizZone = document.querySelector(".quiz-zone");
+let quizZoneQuestion = document.querySelector(".quiz-zone-question");
 let quizBottomContainer = document.querySelector(".bottom-container");
 
 let startGameBtn = document.querySelector(".start-button");

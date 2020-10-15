@@ -20,7 +20,7 @@
 }
 
 .animate{
-    animation: 1s drop;
+    animation: 10s drop;
 }
 
 @keyframes drop{
@@ -71,6 +71,7 @@ section{
 .bottom-container{
     height: 40px;
     padding-top: 10px;
+    transition: none;
 }
 
 .next-button{
@@ -94,7 +95,6 @@ section{
 .quiz-result{
     float: right;
     text-align: right;
-    font-weight: bold;
     height: 25px; width: 70px;
     padding: 10px 20px 10px 0;
 }
