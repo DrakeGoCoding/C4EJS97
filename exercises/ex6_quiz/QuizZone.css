@@ -17,7 +17,9 @@
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 22px;
-    position: relative;
+}
+
+.animate{
     animation: 1s drop;
 }
 
@@ -67,20 +69,20 @@ section{
 }
 
 .bottom-container{
-    display: flex;
+    height: 40px;
+    padding-top: 10px;
 }
 
 .next-button{
-    flex: 25;
     background: #6f0c0c;
     color: #fff;
     border: 1px solid #ddd;
     border-radius: 10px;
     box-shadow: 0 5px 8px -5px;
     padding: 10px 0 10px 0;
+    height: 23px; width: 80px;
+    float: left;
     text-align: center;
-    height: 25px;
-    display: none;
     font-weight: bold;
 }
 
@@ -90,7 +92,9 @@ section{
 }
 
 .quiz-result{
-    flex: 75%;
+    float: right;
     text-align: right;
-    padding: 10px 0 10px 0;
+    font-weight: bold;
+    height: 25px; width: 70px;
+    padding: 10px 20px 10px 0;
 }

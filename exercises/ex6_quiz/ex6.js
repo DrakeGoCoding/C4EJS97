@@ -246,6 +246,7 @@ class QuizGame {
 
     startGame() {
         quizIndex = 0;
+        correctAnswerCount = 0;
         this.nextQuestion();
     }
 
@@ -256,13 +257,12 @@ class QuizGame {
     }
 
     nextQuestion() {
+        this.prepareNextQuestion();
         currentQuestion = this.questionList[quizIndex];
-        if (currentQuestion) {
+        if (currentQuestion)
             this.displayQuestion(quizIndex++, currentQuestion.question, currentQuestion.answers);
-        }
-        else {
+        else
             this.endGame();
-        }
     }
 
     checkAnswer(question, userAnswer) {
@@ -284,6 +284,7 @@ class QuizGame {
             currentAnswerBtn.style.color = "white";
             quizResult.innerHTML = "Incorrect!";
         }
+        quizBottomContainer.style.display = "block";
     }
 
     prepareNextQuestion() {
@@ -292,8 +293,7 @@ class QuizGame {
             let oldButton = button.setAttribute('style', '');
             return oldButton;
         });
-        nextBtn.style.display = "none";
-        quizResult.innerHTML = "";
+        quizBottomContainer.style.display = "none";
     }
 }
 
@@ -310,23 +310,26 @@ function shuffleArray(array) {
 }
 
 let quizIntro = document.querySelector("section");
-let startGameBtn = document.querySelector(".start-button");
 let quizZoneParent = document.querySelector(".quiz-zone-parent");
 let quizZone = document.querySelector(".quiz-zone-question");
-let quizCount = document.querySelector(".quiz-count");
-let quizTitle = document.querySelector(".quiz");
-let exitBtn = document.querySelector(".X");
+let quizBottomContainer = document.querySelector(".bottom-container");
+
+let startGameBtn = document.querySelector(".start-button");
 let answerBtns = document.querySelectorAll(".quiz-container");
 let nextBtn = document.querySelector(".next-button");
-let quizResult = document.querySelector(".quiz-result");
-let quizExitWarningZone = document.querySelector(".quiz-exit-warning");
+let exitBtn = document.querySelector(".X");
 
-let quizIndex;
+let quizTitle = document.querySelector(".quiz");
+let quizCount = document.querySelector(".quiz-count");
+let quizResult = document.querySelector(".quiz-result");
+
+let quizIndex = 0;
+let correctAnswerCount = 0;
+let isChosen = false;
+
 let currentQuestion;
 let currentAnswer;
 let currentAnswerBtn;
-let correctAnswerCount = 0;
-let isChosen = false;
 
 let quizGame;
 
@@ -345,17 +348,15 @@ exitBtn.addEventListener("click", () => {
 
 answerBtns.forEach(button => {
     button.addEventListener("dblclick", () => {
-        if (!isChosen){
+        if (!isChosen) {
             currentAnswerBtn = button;
             currentAnswer = button.children[0].innerHTML;
             quizGame.showAnswer(currentQuestion, currentAnswer);
-            nextBtn.style.display = "block";  
             isChosen = true;
-        }   
+        }
     })
 });
 
 nextBtn.addEventListener("click", () => {
-    quizGame.prepareNextQuestion();
     quizGame.nextQuestion();
 })
