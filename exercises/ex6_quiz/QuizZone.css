@@ -20,7 +20,7 @@
 }
 
 .animate{
-    animation: 10s drop;
+    animation: 1s drop;
 }
 
 @keyframes drop{
