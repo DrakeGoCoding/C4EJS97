@@ -1,26 +1,16 @@
 const MAX = 10;
 const MIN = 0;
 const MAX_TRIES = 3;
-var luckyNumber;
 
+var luckyNumber;
 let inputNumber;
 let countTries = 0;
 let isCorrect = false;
 
 let trial = document.getElementById('trial');
-trial.innerText = `Guess a natural number in [${MIN}, ${MAX}]`;
-
 let inputDiv = document.getElementById('input-number');
 let submitBtn = document.getElementById('submit-btn');
 let alertDiv = document.getElementById('alert');
-let modal = document.getElementById('my-modal');
-let closeModalBtn = document.getElementsByClassName('close')[0];
-
-function initialize(){
-    luckyNumber = Math.floor(Math.random() * (MAX - MIN + 1) + MIN);
-    countTries = 0;
-    isCorrect = false;
-}
 
 initialize();
 
@@ -73,4 +63,11 @@ submitBtn.onclick = () => {
 function isValidInput(input) {
     const VALID_REGEX = /^[0-9]+$/;
     return input.match(VALID_REGEX);
+}
+
+function initialize(){
+    luckyNumber = Math.floor(Math.random() * (MAX - MIN + 1) + MIN);
+    countTries = 0;
+    isCorrect = false;
+    trial.innerText = `Guess a natural number in [${MIN}, ${MAX}]`;
 }
