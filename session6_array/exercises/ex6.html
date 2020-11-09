@@ -9,12 +9,10 @@
     <script>
         let array = [2, 0, 1, 8, 4, 2, 8, 8];
         let num = Number(prompt("Enter a number: "));
-        let found = array.filter(
-            element => element > num
-        );
+        let found = array.filter(element => element > num);
         
-        if (found.length === 0) console.log(`No elements > ${num}`);
-        else console.log(`All numbers > ${num} in array: ${found}`);
+        if (found.length) console.log(`All numbers > ${num} in array: ${found}`);
+        else console.log(`No elements > ${num}`);
     </script>
 </body>
 </html>

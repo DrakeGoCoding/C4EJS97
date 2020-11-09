@@ -9,21 +9,13 @@
     <script>
         function secondHighest(array){
             let max = Math.max.apply(null, array);
-            let subArray = array.filter(
-                function(x){
-                    return x !== max;
-                }
-            )
+            let subArray = array.filter(elem => elem !== max);
             return Math.max.apply(null, subArray);
         }
 
         function secondLowest(array){
             let min = Math.min.apply(null, array);
-            let subArray = array.filter(
-                function(x){
-                    return x !== min;
-                }
-            )
+            let subArray = array.filter(elem => elem !== min);
             return Math.min.apply(null, subArray);
         }
 

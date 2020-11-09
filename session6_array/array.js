@@ -1,17 +1,13 @@
 let heights = [150, 155, 170, 145, 180];
 
 // 1
-for (let i = 0 ; i < heights.length ; i++){
-    console.log(heights[i]);
-}
+heights.forEach((height) => {console.log(height);})
 
 // 2
 let sum = 0;
 let average;
 
-for (let i = 0 ; i < heights.length ; i++){
-    sum += heights[i];
-}
+heights.forEach((height) => {sum += height;});
 average = sum / heights.length;
 console.log(`Average height: ${average}`);
 
@@ -29,6 +25,7 @@ console.log(`Min height: ${minHeight}`);
 // 5
 heights.sort();
 console.log(`Ascending order: ${heights}`);
+
 heights.sort((a, b) => b - a);
 console.log(`Descending order: ${heights}`);
 

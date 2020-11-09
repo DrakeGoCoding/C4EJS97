@@ -9,12 +9,11 @@
     <script>
         function isEqualArray(arr1, arr2){
             if (arr1.length != arr2.length) return false;
-            arr1.sort();
-            arr2.sort();
-            for (let i = 0 ; i < arr1.length ; i++){
-                if (arr1[i] != arr2[i]) return false;
-            }
-            return true;
+            let arr3 = JSON.parse(JSON.stringify(arr1));
+            let arr4 = JSON.parse(JSON.stringify(arr2));
+            arr3.sort();
+            arr4.sort();
+            return arr3.every((elem, index) => elem === arr4[index]);
         }
 
         let arr1 = [2, 0, 1, 8, 4, 2, 8, 8];

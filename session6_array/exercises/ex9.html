@@ -10,10 +10,12 @@
         let array1 = [2, 0, 1, 8, 4, 2, 8, 8];
         let array2 = [0, 9, 8, 2, 7, 7, 9, 8, 0, 9];
 
-        let array3 = array1.filter( (elem, index) =>
+        let array3 = array1.filter((elem, index) =>
+            // only get first appearance of elem
             array1.indexOf(elem) === index &&
-            array2.indexOf(elem) !== -1
-        ).sort();
+            // elem must exist in array2
+            array2.includes(elem)
+        )
 
         console.log(array1);
         console.log(array2);

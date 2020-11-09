@@ -8,7 +8,8 @@
 <body>
     <script>
         let string = prompt("Enter a string");
-        let getArray = string.split("");
+        // let getArray = string.split("");
+        let getArray = Array.from(string);
         let reverseArray = getArray.reverse();
         let getStringFromArray = reverseArray.join("");
         

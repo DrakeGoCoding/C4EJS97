@@ -9,13 +9,12 @@
     <script>
         let array = [2, 0, 1, 8, 4, 2, 8, 8];
         let mapping = array.filter((elem, index) => 
-            array.indexOf(elem) == index
+            array.indexOf(elem) === index
         ).map(key => 
             [key, array.filter(dupKey => dupKey === key).length]
         );
         
-        console.log(mapping);
-        
+        console.log(mapping);      
     </script>
 </body>
 </html>

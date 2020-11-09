@@ -1,27 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exercise7</title>
 </head>
+
 <body>
     <script>
-        let languages = ["Javascript", "Html", "Css", "Pascal", "Css"];
-        console.log(languages);
-
+        let languages = ["Javascript", "Html", "Css", "Pascal"];
         let lang = prompt("Enter a programming language");
-        let found = [];
+        let found = languages.findIndex(language => language === lang);
 
-        for (let i = 0 ; i < languages.length ; i++){
-            if (languages[i] === lang){
-                found.push(i);
-            }
-        }
-
-        if (found.length === 0) console.log("Not found");
-        else console.log(`${lang } at position: ${found}`);
-
+        console.log(languages);
+        if (found >= 0) console.log(`${lang} first found at position ${found}`);       
+        else console.log("Not found");
     </script>
 </body>
+
 </html>
