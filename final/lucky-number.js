@@ -5,7 +5,6 @@ const MAX_TRIES = 3;
 var luckyNumber;
 let inputNumber;
 let countTries = 0;
-let isCorrect = false;
 
 let trial = document.getElementById('trial');
 let inputDiv = document.getElementById('input-number');
@@ -16,7 +15,7 @@ initialize();
 
 inputDiv.onkeyup = () => {
     inputNumber = inputDiv.value;
-    if (inputNumber.length === 0){
+    if (inputNumber.length === 0) {
         alertDiv.innerText = "Please enter a number!";
         alertDiv.style.color = 'red';
         alertDiv.style.display = 'block';
@@ -35,14 +34,6 @@ inputDiv.onkeyup = () => {
 }
 
 submitBtn.onclick = () => {
-    countTries++;
-    if (countTries >= MAX_TRIES && !isCorrect){
-        alertDiv.style.display = 'none';
-        inputDiv.value = '';
-        alert(`You lose! Lucky number for today is ${luckyNumber}!`);
-        initialize();
-        return;
-    }
     let inputString = inputDiv.value;
     inputNumber = Number(inputString);
     if (inputNumber === luckyNumber) {
@@ -52,12 +43,18 @@ submitBtn.onclick = () => {
         initialize();
         return;
     }
-    else {
-        inputDiv.value = '';
-        alertDiv.innerText = `Bad luck! You have ${MAX_TRIES - countTries} more chance(s)!`;
-        alertDiv.style.color = 'red';
-        alertDiv.style.display = 'block';
+    countTries++;
+    inputDiv.value = '';
+    if (countTries >= MAX_TRIES) {
+        alertDiv.style.display = 'none';
+        alert(`You lose! Lucky number for today is ${luckyNumber}!`);
+        initialize();
+        return;
     }
+    alertDiv.innerText = `Bad luck! You have ${MAX_TRIES - countTries} more chance(s)!`;
+    alertDiv.style.color = 'red';
+    alertDiv.style.display = 'block';
+
 }
 
 function isValidInput(input) {
@@ -65,8 +62,9 @@ function isValidInput(input) {
     return input.match(VALID_REGEX);
 }
 
-function initialize(){
+function initialize() {
     luckyNumber = Math.floor(Math.random() * (MAX - MIN + 1) + MIN);
+    console.log(luckyNumber);
     countTries = 0;
     isCorrect = false;
     trial.innerText = `Guess a natural number in [${MIN}, ${MAX}]`;
