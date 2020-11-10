@@ -63,9 +63,7 @@ function isValidInput(input) {
 }
 
 function initialize() {
-    luckyNumber = Math.floor(Math.random() * (MAX - MIN + 1) + MIN);
-    console.log(luckyNumber);
     countTries = 0;
-    isCorrect = false;
+    luckyNumber = Math.floor(Math.random() * (MAX - MIN + 1) + MIN);
     trial.innerText = `Guess a natural number in [${MIN}, ${MAX}]`;
 }
